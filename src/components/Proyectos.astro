@@ -3,7 +3,7 @@ import GitHubIcon from "../icons/GitHub.astro";
 
 const projects = [
   {
-    title: "Sistema de Ventas",
+    title: "SISTEMA DE PUNTO DE VENTA",
     description:
       "Sistema completo de punto de venta con gestión de caja, créditos, comisiones, devoluciones y módulo bancario. Construido con Java Swing y PostgreSQL.",
     image: "/proyectos/SafenexPOS.webp",
@@ -12,12 +12,21 @@ const projects = [
     demo: "",
   },
   {
-    title: "Portfolio Web",
+    title: "PORTFOLIO WEB",
     description:
       "Mi portfolio personal. Diseño oscuro moderno con texto animado, íconos sociales y componentes reutilizables.",
     image: "/proyectos/PortfolioWeb.webp", 
     tags: ["Astro", "TailwindCSS", "TypeScript"],
     github: "https://github.com/ramonmlzz/portfolio-dev",
+    demo: "",
+  },
+  {
+    title: "El JUEGO DE LOS REYES",
+    description:
+      "Enciclopedia interactiva de ajedrez construida con React y Vite. Incluye historia del juego, piezas, grandes maestros, reglas y un visor de aperturas animado con movimientos paso a paso.",
+    image: "/proyectos/ChessWeb.webp", 
+    tags: ["React", "Vite", "JavaScript"],
+    github: "https://github.com/ramonmlzz/chess-app",
     demo: "",
   },
 ];
@@ -39,12 +48,13 @@ const projects = [
           <div class="w-full h-44 overflow-hidden bg-white/5 relative">
             {project.image ? (
               <img
+                class="w-full h-auto object-cover aspect-video image-render-auto"
+                style="image-rendering: -webkit-optimize-contrast;"
                 src={project.image}
                 alt={`Preview de ${project.title}`}
-                class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
               />
             ) : (
-              <!-- Placeholder si no hay imagen todavía -->
+              <!-- Placeholder si no hay imagen -->
               <div class="w-full h-full flex items-center justify-center text-white/20 text-sm font-mono">
                 sin preview
               </div>
