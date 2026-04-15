@@ -9,6 +9,7 @@ import JavaScriptIcon from "../icons/JavaScript.astro";
 import JavaIcon from "../icons/Java.astro";
 import PostgreSQLIcon from "../icons/PostgreSQL.astro";
 import NetBeansIcon from "../icons/NetBeans.astro";
+import ExternalLinkIcon from "../icons/ExternalLink.astro";
 
 const TAG_MAP = {
   ASTRO: {
@@ -84,7 +85,7 @@ const projects = [
     image: "/proyectos/ChessWeb.webp",
     tags: [TAG_MAP.REACT, TAG_MAP.VITE, TAG_MAP.JAVA_SCRIPT],
     github: "https://github.com/ramonmlzz/chess-app",
-    demo: "",
+    demo: "https://chess-app-eight-green.vercel.app/",
   },
   {
     title: "SISTEMA DE PUNTO DE VENTA",
@@ -127,15 +128,28 @@ const projects = [
               <h3 class="text-white font-semibold text-lg leading-tight">
                 {project.title}
               </h3>
-              <div class="flex items-center gap-2 flex-shrink-0 mt-0.5">
+              <div class="flex items-center gap-3 flex-shrink-0 mt-0.5">
+                {" "}
                 {project.github && (
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
                     class="text-white/50 hover:text-white transition-colors"
+                    aria-label="Ver código en GitHub"
                   >
                     <GitHubIcon class="w-5 h-5" />
+                  </a>
+                )}
+                {project.demo && (
+                  <a
+                    href={project.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-white/50 hover:text-white transition-colors"
+                    aria-label="Ver sitio en vivo"
+                  >
+                    <ExternalLinkIcon class="w-5 h-5" />
                   </a>
                 )}
               </div>
