@@ -1,13 +1,79 @@
 ---
 import GitHubIcon from "../icons/GitHub.astro";
+import ViteIcon from "../icons/Vite.astro";
+import AstroIcon from "../icons/Astroo.astro";
+import ReactIcon from "../icons/React.astro";
+import TailwindIcon from "../icons/Tailwind.astro";
+import TypeScriptIcon from "../icons/TypeScript.astro";
+import JavaScriptIcon from "../icons/JavaScript.astro";
+import JavaIcon from "../icons/Java.astro";
+import PostgreSQLIcon from "../icons/PostgreSQL.astro";
+import NetBeansIcon from "../icons/NetBeans.astro";
+
+const TAG_MAP = {
+  ASTRO: {
+    name: "Astro",
+    icon: AstroIcon,
+    class:
+      "bg-[#ff5d05]/10 text-[#ff5d05] border-[#ff5d05]/50 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-md",
+  },
+  REACT: {
+    name: "React",
+    icon: ReactIcon,
+    class:
+      "bg-[#002244]/50 text-[#58c4dc] border-[#003d5c] transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-md",
+  },
+  TAILWIND_CSS: {
+    name: "Tailwind CSS",
+    icon: TailwindIcon,
+    class:
+      "bg-sky-950/40 text-sky-200 border-sky-800 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-md",
+  },
+  TYPE_SCRIPT: {
+    name: "TypeScript",
+    icon: TypeScriptIcon,
+    class:
+      "bg-[#002244]/50 text-[#5da9ff] border-[#003366] transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-md",
+  },
+  JAVA_SCRIPT: {
+    name: "JavaScript",
+    icon: JavaScriptIcon,
+    class:
+      "bg-yellow-950/40 text-yellow-100 border-yellow-800 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-md",
+  },
+  JAVA: {
+    name: "Java",
+    icon: JavaIcon,
+    class:
+      "bg-red-950/40 text-red-100 border-red-800 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-md",
+  },
+  POSTGRESQL: {
+    name: "PostgreSQL",
+    icon: PostgreSQLIcon,
+    class:
+      "bg-slate-800/60 text-slate-100 border-slate-700 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-md",
+  },
+  VITE: {
+    name: "Vite",
+    icon: ViteIcon,
+    class:
+      "bg-[#646cff]/10 text-[#646cff] border-[#646cff]/50 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-md",
+  },
+  NETBEANS: {
+    name: "NetBeans",
+    icon: NetBeansIcon,
+    class:
+      "transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-md",
+  },
+};
 
 const projects = [
   {
     title: "PORTFOLIO WEB",
     description:
       "Mi portfolio personal. Diseño oscuro moderno con texto animado, íconos sociales y componentes reutilizables.",
-    image: "/proyectos/PortfolioWeb.webp", 
-    tags: ["Astro", "TailwindCSS", "TypeScript"],
+    image: "/proyectos/PortfolioWeb.webp",
+    tags: [TAG_MAP.ASTRO, TAG_MAP.TAILWIND_CSS, TAG_MAP.TYPE_SCRIPT],
     github: "https://github.com/ramonmlzz/portfolio-dev",
     demo: "",
   },
@@ -15,8 +81,8 @@ const projects = [
     title: "El JUEGO DE LOS REYES",
     description:
       "Enciclopedia interactiva de ajedrez construida con React y Vite. Incluye historia del juego, piezas, grandes maestros, reglas y un visor de aperturas animado con movimientos paso a paso.",
-    image: "/proyectos/ChessWeb.webp", 
-    tags: ["React", "Vite", "JavaScript"],
+    image: "/proyectos/ChessWeb.webp",
+    tags: [TAG_MAP.REACT, TAG_MAP.VITE, TAG_MAP.JAVA_SCRIPT],
     github: "https://github.com/ramonmlzz/chess-app",
     demo: "",
   },
@@ -25,47 +91,38 @@ const projects = [
     description:
       "Sistema completo de punto de venta con gestión de caja, créditos, comisiones, devoluciones y módulo bancario. Construido con Java Swing y PostgreSQL.",
     image: "/proyectos/SafenexPOS.webp",
-    tags: ["Java", "Swing", "PostgreSQL", "NetBeans"],
+    tags: [TAG_MAP.JAVA, TAG_MAP.POSTGRESQL, TAG_MAP.NETBEANS],
     github: "https://github.com/ramonmlzz/SafenexPOS",
     demo: "",
   },
-  
 ];
 ---
 
-<section id="proyectos" class="w-full mx-auto lg:w-[1100px] py-16">
+<section id="proyectos" class="w-full mx-auto lg:w-[1170px] py-16">
   <h2 class="text-3xl font-bold text-white mb-2">Proyectos</h2>
   <p class="text-white/50 mb-10 text-sm">
     Algunos de los proyectos que he construido.
   </p>
 
-  <!-- Grid de proyectos -->
-  <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
     {
       projects.map((project) => (
         <article class="rounded-2xl border border-white/10 bg-white/5 overflow-hidden hover:bg-white/10 hover:border-white/20 transition-all duration-300 group flex flex-col">
-
-          <!-- Preview del proyecto -->
-          <div class="w-full h-44 overflow-hidden bg-white/5 relative">
+          <div class="w-full overflow-hidden bg-white/5 relative">
             {project.image ? (
               <img
-                class="w-full h-auto object-cover aspect-video image-render-auto"
-                style="image-rendering: -webkit-optimize-contrast;"
+                class="w-full h-50 object-cover object-top transition duration-500 group-hover:scale-105"
                 src={project.image}
                 alt={`Preview de ${project.title}`}
               />
             ) : (
-              <!-- Placeholder si no hay imagen -->
               <div class="w-full h-full flex items-center justify-center text-white/20 text-sm font-mono">
                 sin preview
               </div>
             )}
           </div>
 
-          <!-- Contenido de la tarjeta -->
           <div class="p-5 flex flex-col flex-1">
-
-            <!-- Título + link GitHub -->
             <div class="flex items-start justify-between gap-2 mb-2">
               <h3 class="text-white font-semibold text-lg leading-tight">
                 {project.title}
@@ -76,43 +133,31 @@ const projects = [
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`GitHub de ${project.title}`}
                     class="text-white/50 hover:text-white transition-colors"
                   >
                     <GitHubIcon class="w-5 h-5" />
                   </a>
                 )}
-                {project.demo && (
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`Demo de ${project.title}`}
-                    class="text-white/50 hover:text-white transition-colors"
-                  >
-                    <!-- Ícono de link externo -->
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </a>
-                )}
               </div>
             </div>
 
-            <!-- Descripción -->
             <p class="text-white/60 text-sm leading-relaxed flex-1 mb-4">
               {project.description}
             </p>
 
-            <!-- Tags de tecnologías -->
-            <div class="flex flex-wrap gap-2">
-              {project.tags.map((tag) => (
-                <span class="text-xs font-mono px-2 py-1 rounded-full border border-white/10 bg-white/5 text-white/70">
-                  {tag}
-                </span>
-              ))}
-            </div>
+            <ul class="flex flex-wrap gap-x-2 gap-y-2.5 mt-auto">
+              {project.tags.map((tag) => {
+                const Icon = tag.icon;
+                return (
+                  <li
+                    class={`flex items-center gap-x-2 rounded-full text-xs font-medium py-1 px-3 border transition-all ${tag.class}`}
+                  >
+                    <Icon class="w-3.5 h-3.5 flex-shrink-0" />
+                    <span>{tag.name}</span>
+                  </li>
+                );
+              })}
+            </ul>
           </div>
         </article>
       ))
