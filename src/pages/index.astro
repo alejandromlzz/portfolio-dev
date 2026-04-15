@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
 import Proyectos from "../components/Proyectos.astro";
+import Habilidades from "../components/Habilidades.astro";
 ---
 
 <Layout
@@ -13,13 +14,17 @@ import Proyectos from "../components/Proyectos.astro";
   <main>
     <section
       id="top"
-      class="w-full mx-auto lg:w-[740px] min-h-[80vh] flex flex-col justify-center py-20"
+      class="w-full mx-auto lg:w-[1100px] min-h-[80vh] flex flex-col justify-center py-20"
     >
       <Hero />
     </section>
 
-    <section id="proyectos" class="w-full mx-auto lg:w-[740px] pt-32 pb-20">
+    <section id="proyectos" class="w-full mx-auto lg:w-[1100px] pt-32 pb-20">
       <Proyectos />
+    </section>
+
+    <section id="habilidades" class="w-full mx-auto lg:w-[1000px] py-20">
+      <Habilidades />
     </section>
   </main></Layout
 >
