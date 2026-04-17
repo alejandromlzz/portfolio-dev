@@ -5,18 +5,66 @@ interface Props {
 	description?: string;
 }
 
-const { title, description = "Portfolio de desarrollador web" } = Astro.props;
+const {
+	title,
+	description = "Portfolio de Alejandro Melgarejo, desarrollador web full stack en Paraguay. Especializado en React, Astro, Java, Node.js y PostgreSQL.",
+} = Astro.props;
+
+const canonicalURL = "https://portfolio-dev-bice.vercel.app/";
 ---
 
 <!doctype html>
 <html lang="es">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="description" content={description} />
+		<meta name="author" content="Alejandro Melgarejo" />
+		<meta name="robots" content="index, follow" />
+		<link rel="canonical" href={canonicalURL} />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="/apple-touch-icon.png"
+		/>
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta
+			property="og:image"
+			content={`${canonicalURL}/alejandro/alejandro.webp`}
+		/>
+		<meta property="og:locale" content="es_PY" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta
+			name="twitter:image"
+			content={`${canonicalURL}/alejandro/alejandro.webp`}
+		/>
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "Person",
+				"name": "Alejandro Melgarejo",
+				"url": "https://portfolio-dev-bice.vercel.app/",
+				"jobTitle": "Full Stack Web Developer",
+				"description": "Desarrollador web full stack de Paraguay especializado en React, Astro, Java y PostgreSQL.",
+				"sameAs": [
+					"https://github.com/ramonmlzz",
+					"https://www.instagram.com/alejandromlzz"
+				],
+				"email": "alejandromelgarejodev@gmail.com",
+				"address": {
+					"@type": "PostalAddress",
+					"addressCountry": "PY"
+				}
+			}
+		</script>
 	</head>
 	<body>
 		<div class="fixed inset-0 -z-10 h-full w-full bg-slate-950">
